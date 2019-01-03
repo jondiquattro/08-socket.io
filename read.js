@@ -1,23 +1,25 @@
 'use strict';
-
-// const updateFile = require(`./write`);
-// const {saved, error, fileOpen} = require('./logger');
-// const event = require('./events');
+const util = require('util')
 const io = require('socket.io-client');
-
+const fs = require('fs');
+const readFile = util.promisify(fs.readFile);
 
 const socket = io.connect('http://localhost:3000');
 
+socket.on('readFile', readF);
 
-let readFile = (file) => {
-   fs.readFile( file, (err, data) => {
-       if(err) { throw err; }
-       let text = data.toString().toUpperCase();
-       updateFile(file,text);
-       //needs to be an event
-       });
+
+function readF () {
+    console.log('called from readfile');
+
+        readFile('test.txt')
+          .then(  (data)=>{
+            let text = data.toString().toUpperCase();
+            // Buffer.from(text)
+            socket.emit('update text',Buffer.from(text));
+          })
+          .catch(console.log('this should be an event'));
 }
 
-socket.on('readFile', readFile);
 
-module.exports = readFile;
+// module.exports = readFile;
