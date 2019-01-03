@@ -4,13 +4,20 @@ const fs = require('fs');
 const io = require('socket.io')(3000);
 
 
-io.on('connection', (socket)=>{
-    // let file = process.argv.slice(2).shift();
-    socket.emit('readFile');
+let file = process.argv.slice(2).shift();
 
-    fs.watch('test.txt', function(event, filename) {
-        socket.emit('file open');
-     });
+io.on('connection', (socket)=>{
+    // socket.emit('readFile',file);
+
+    console.log('New Connection from server', socket.id);
+    console.log(fs.ReadStream('test.txt',{start: 0, end: 10}))
+
+    // fs.ReadStream('test.txt',{fd: true});
+
+    socket.on('open', ()=>{
+        console.log('open')
+    })
+ 
      socket.on('update text', (payload)=>{
          socket.broadcast.emit('update text','test.txt', payload)
      })

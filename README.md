@@ -2,14 +2,16 @@
 =================================================
 
 ## Project Name
-
+Lab 08 Socket.io
 ### Author: Student/Group Name
+Tanner Seramur and Jonathan DiQuattro
 
 ### Links and Resources
-* [repo](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com)
-* [front-end](http://xyz.com)
+* [repo](https://github.com/jondiquattro/08-socket.io)
+* [travis](https://www.travis-ci.com/jondiquattro/08-socket.io)
+* [heroku](https://dashboard.heroku.com/apps/lab-08-diquattro)
+
+
 
 ### Modules
 #### `modulename.js`
@@ -17,26 +19,15 @@
 
 ###### `foo(thing) -> string`
 Usage Notes or examples
+https://lab-08-diquattro.herokuapp.com/
 
 ###### `bar(array) -> array`
 Usage Notes or examples
 
 ### Setup
-#### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
-
-#### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+run nodemon on the following files:
+server.js, read.js, logger.js, write.js
 
 #### Tests
 * How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events
+npm test
