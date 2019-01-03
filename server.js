@@ -1,28 +1,32 @@
 'use strict';
+const fs = require('fs');
 
 const io = require('socket.io')(3000);
-// const {saved, error, fileOpen} = require('./logger');
-// const read = require('./read');
-// const write = require('./write');
-
-
 
 
 io.on('connection', (socket)=>{
-    console.log('New Connection', socket.id);
-    
-    socket.on('readFile', (payload)=>{
-        socket.broadcast.emit('file open',payload)
+    // let file = process.argv.slice(2).shift();
+    socket.emit('readFile');
+
+    fs.watch('test.txt', function(event, filename) {
+        socket.emit('file open');
+     });
+     socket.on('update text', (payload)=>{
+         socket.broadcast.emit('update text','test.txt', payload)
+     })
+
+    socket.on('file open', (payload)=>{
+        socket.emit('readFile',payload)
+        
     })
 
-    
     socket.on('speak', (payload)=>{
         console.log({payload});
         socket.broadcast.emit('message', payload)
        
 
     })
-    socket.on
+    
 });
 
 

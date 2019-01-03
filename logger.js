@@ -22,9 +22,12 @@ let error = () => {
 let fileOpen = () => {
    console.log('file is open');
 };
-
+let fileWrite = () =>{
+    console.log('File was written to.')
+}
 event.on('saved',saved);
 event.on('error', error);
 event.on('file open', fileOpen);
+event.on('update text', fileWrite)
 
 module.exports = {saved, error, fileOpen};
