@@ -25,9 +25,9 @@ let fileOpen = () => {
 let fileWrite = () =>{
     console.log('File was written to.')
 }
-event.on('saved',saved);
+event.on('update text',saved);//from write
 event.on('error', error);
-event.on('file open', fileOpen);
+event.on('readFile', fileOpen);
 event.on('update text', fileWrite)
 
 module.exports = {saved, error, fileOpen};
