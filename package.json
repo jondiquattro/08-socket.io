@@ -1,0 +1,27 @@
+{
+  "name": "class-06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chatroom.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "jest": "^23.6.0",
+    "nc": "^1.0.2",
+    "nodemon": "^1.18.9",
+    "require-directory": "^2.1.1",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "travis": "^0.1.1",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
+}
